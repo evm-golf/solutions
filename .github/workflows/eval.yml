@@ -3,7 +3,6 @@ name: eval
 on:
   issues:
     types:
-      - reopened
       - opened
 
 jobs:
@@ -14,10 +13,8 @@ jobs:
       - name: Clone Golf Repo
         uses: actions/checkout@v3
         with:
-          repository: evm-golf/golf
-
-      - name: Install Dependencies
-        run: npm install --save-dev
+          repository: evm-golf/environment
+          ref: release
 
       - name: Eval
         run: npx hardhat run scripts/eval.js
